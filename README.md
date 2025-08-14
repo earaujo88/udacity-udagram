@@ -70,3 +70,9 @@ The e2e tests are using Protractor and Jasmine.
 ## License
 
 [License](LICENSE.txt)
+
+## Try it out
+
+http://final-project-079455686433.s3-website-us-east-1.amazonaws.com
+
+![Working app](./screenshots/working_app.png)
