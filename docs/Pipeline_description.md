@@ -1,12 +1,31 @@
-Overview
-This document describes the steps avaiable on the circle ci config. All steps are using npm scripts avaiable on the package.json at the root folder.
+# Overview
+This document describes our CI/CD process
 
-Orbs Used
+### Git Flow
+
+- Create a feature branch for your task
+- Once its completed push to the remote repositorie and create a pull request to merge with master branch
+- Once pull request is approved and your code is merged with the master branch a circleci pipeline will start 
+
+### Checking pipeline
+- Open circleci web page
+- Open our oraganization
+- Click on projects
+- On prjects list click on the Pipelines for udacity-udagram project
+- Find the pipeline related with our commit and wait for completion
+
+### Pipeline description
+
+Find pipeline config at .circleci/config.yml
+
+All steps are using npm scripts avaiable on the package.json at the root folder.
+
+## Orbs Used
 - circleci/node@5.0.3: Node.js orb for installing Node.js and running npm commands.
 - circleci/aws-elastic-beanstalk@2.0.1: AWS Elastic Beanstalk orb for deploying applications to Elastic Beanstalk.
 - circleci/aws-cli@3.1.1: AWS CLI orb for interacting with AWS services.
 
-Jobs
+## Jobs
 Build Job
 The build job is responsible for building the application.
 
@@ -38,7 +57,7 @@ The deploy job is responsible for deploying the application to AWS Elastic Beans
         - npm run api:build
         - npm run api:deploy
 
-Workflows
+## Workflows
 The udagram workflow defines the order of job execution.
 
 - Jobs:
