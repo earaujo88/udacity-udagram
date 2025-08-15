@@ -13,7 +13,7 @@
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "deploy": "npm run build && eb list && eb setenv edu=edu && eb use udagram-api-dev && eb deploy",
+    "deploy": "npm run build && eb list && eb setenv AWS_BUCKET=$AWS_BUCKET && eb setenv AWS_PROFILE=$AWS_PROFILE && eb setenv AWS_REGION=$AWS_REGION && eb setenv JWT_SECRET=$JWT_SECRET && eb setenv POSTGRES_DB=$POSTGRES_DB && eb setenv POSTGRES_HOST=$POSTGRES_HOST && eb setenv POSTGRES_PASSWORD=$POSTGRES_PASSWORD && eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME && eb setenv URL=$URL && eb use udagram-api-dev && eb deploy",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
